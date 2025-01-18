@@ -12,6 +12,8 @@ Disable all Windows guard and kernel guard
 Disable quick start (Somehow interfering with kdmapper's operation)
 Restart PC
 
+Forum Thread: https://www.unknowncheats.me/forum/counterstrike-source/680279-css-steam-external-kernel-wh-functions.html
+
 Features:
 ESP:
 2D Box
