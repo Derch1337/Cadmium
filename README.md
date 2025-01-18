@@ -4,33 +4,31 @@ The client uses a kernel driver, and the KDMapper utility is used to load it.
 The client uses BSP parser from ReactiioN1337.
 
 Game Version: v92
-Game Startup Options:
--windowed -noborder
+
+Game Startup Options: -windowed -noborder
 
 Driver load:
-Disable all Windows guard and kernel guard
-Disable quick start (Somehow interfering with kdmapper's operation)
-Restart PC
+-Disable all Windows guard and kernel guard
+-Disable quick start (Somehow interfering with kdmapper's operation)
+-Restart PC
 
 Forum Thread: https://www.unknowncheats.me/forum/counterstrike-source/680279-css-steam-external-kernel-wh-functions.html
 
 Features:
-ESP:
-2D Box
-3D Box
-Skeleton
-Health, Weapon and more
-
-Radar
-TriggerBot
-Bhop
-2D crosshair
-2D configurable crosshair
+-2D Box
+-3D Box
+-Skeleton
+-Health, Weapon and more
+-Radar
+-TriggerBot
+-Bhop
+-2D crosshair
+-2D configurable crosshair
 
 Planned Features:
-Aimbot
-Improved trigger
-Recoil control
-UI Improvement:
+-Aimbot
+-Improved trigger
+-Recoil control
+-UI Improvement:
  - Bind System
  - Customisable style
