@@ -312,19 +312,19 @@ void CVisuals::DrawEdgeHealthBar(const EnemyEntity& Entity)
 void DrawCapsule(const Vector2& p1, const Vector2& p2, float radius, ImU32 color) {
 	ImDrawList* draw_list = ImGui::GetBackgroundDrawList();
 
-	// ¬˚˜ËÒÎˇÂÏ Ì‡Ô‡‚ÎÂÌËÂ ÏÂÊ‰Û ‰‚ÛÏˇ ÚÓ˜Í‡ÏË
+	// √Ç√ª√∑√®√±√´√ø√•√¨ √≠√†√Ø√∞√†√¢√´√•√≠√®√• √¨√•√¶√§√≥ √§√¢√≥√¨√ø √≤√Æ√∑√™√†√¨√®
 	Vector2 dir = p2 - p1;
 	float length = std::sqrt(dir.x * dir.x + dir.y * dir.y);
 
 	if (length > 0.0f) {
-		dir.x /= length; // ÕÓÏ‡ÎËÁÛÂÏ Ì‡Ô‡‚ÎÂÌËÂ
+		dir.x /= length; // √ç√Æ√∞√¨√†√´√®√ß√≥√•√¨ √≠√†√Ø√∞√†√¢√´√•√≠√®√•
 		dir.y /= length;
 	}
 
-	// ¬˚˜ËÒÎˇÂÏ ÔÂÔÂÌ‰ËÍÛÎˇÌÓÂ Ì‡Ô‡‚ÎÂÌËÂ ‰Îˇ ¯ËËÌ˚ Í‡ÔÒÛÎ˚
+	// √Ç√ª√∑√®√±√´√ø√•√¨ √Ø√•√∞√Ø√•√≠√§√®√™√≥√´√ø√∞√≠√Æ√• √≠√†√Ø√∞√†√¢√´√•√≠√®√• √§√´√ø √∏√®√∞√®√≠√ª √™√†√Ø√±√≥√´√ª
 	Vector2 perp(-dir.y * radius, dir.x * radius);
 
-	// ¬˚˜ËÒÎˇÂÏ Û„ÎÓ‚˚Â ÚÓ˜ÍË ÔˇÏÓÛ„ÓÎ¸ÌËÍ‡ (ÚÂÎ‡ Í‡ÔÒÛÎ˚)
+	// √Ç√ª√∑√®√±√´√ø√•√¨ √≥√£√´√Æ√¢√ª√• √≤√Æ√∑√™√® √Ø√∞√ø√¨√Æ√≥√£√Æ√´√º√≠√®√™√† (√≤√•√´√† √™√†√Ø√±√≥√´√ª)
 	Vector2 rect_p1 = p1 + perp;
 	Vector2 rect_p2 = p2 + perp;
 	Vector2 rect_p3 = p2 - perp;
@@ -332,12 +332,12 @@ void DrawCapsule(const Vector2& p1, const Vector2& p2, float radius, ImU32 color
 
 	
 
-	// –ËÒÛÂÏ ÚÂÎÓ (ˆËÎËÌ‰) Í‡ÔÒÛÎ˚
+	// √ê√®√±√≥√•√¨ √≤√•√´√Æ (√∂√®√´√®√≠√§√∞) √™√†√Ø√±√≥√´√ª
 	draw_list->AddQuadFilled(Vector2ToImVec2(rect_p1), Vector2ToImVec2(rect_p2), Vector2ToImVec2(rect_p3), Vector2ToImVec2(rect_p4), color);
 
-	// –ËÒÛÂÏ ÔÓÎÛÒÙÂ˚ Ì‡ ÍÓÌˆ‡ı
-	draw_list->AddCircleFilled(Vector2ToImVec2(p1), radius, color, 32); // ÀÂ‚‡ˇ ÔÓÎÛÒÙÂ‡
-	draw_list->AddCircleFilled(Vector2ToImVec2(p2), radius, color, 32); // œ‡‚‡ˇ ÔÓÎÛÒÙÂ‡
+	// √ê√®√±√≥√•√¨ √Ø√Æ√´√≥√±√¥√•√∞√ª √≠√† √™√Æ√≠√∂√†√µ
+	draw_list->AddCircleFilled(Vector2ToImVec2(p1), radius, color, 32); // √ã√•√¢√†√ø √Ø√Æ√´√≥√±√¥√•√∞√†
+	draw_list->AddCircleFilled(Vector2ToImVec2(p2), radius, color, 32); // √è√∞√†√¢√†√ø √Ø√Æ√´√≥√±√¥√•√∞√†
 }
 
 void CVisuals::DrawSkeleton(const EnemyEntity& Entity)
@@ -358,13 +358,11 @@ void CVisuals::DrawSkeleton(const EnemyEntity& Entity)
 
 		float* color = GetColorST(Entity.Team, entityHandle.localPlayer.Team, is_visible, config);
 
-		
+		//auto colIm = ImGui::ColorConvertFloat4ToU32(ImColor(color[0], color[1], color[2], color[3]));
 
-		auto colIm = ImGui::ColorConvertFloat4ToU32(ImColor(color[0], color[1], color[2], color[3]));
+		//DrawCapsule(bone1.ScreenPosition, bone2.ScreenPosition, config.visualConfig.SkeletonConnectPointRadius, colIm);
 
-		DrawCapsule(bone1.ScreenPosition, bone2.ScreenPosition, config.visualConfig.SkeletonConnectPointRadius, colIm);
-
-		/*ImRender::DrawLine(
+		ImRender::DrawLine(
 			bone1.ScreenPosition,
 			bone2.ScreenPosition,
 			ImColor(color[0], color[1], color[2], color[3]),
@@ -372,7 +370,7 @@ void CVisuals::DrawSkeleton(const EnemyEntity& Entity)
 			config.visualConfig.SkeletonDrawConnectPoint,
 			config.visualConfig.SkeletonConnectPointRadius,
 			ImColor(color[0], color[1], color[2], color[3])
-		);*/
+		);
 	}
 }
 
